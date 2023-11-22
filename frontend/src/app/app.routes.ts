@@ -5,14 +5,18 @@ import {SidebarComponent} from "./components/home/sidebar/sidebar.component";
 import {HomeComponent} from "./components/home/home.component";
 import {TutorialComponent} from "./components/home/tutorial/tutorial.component";
 import {TicketingComponent} from "./components/home/ticketing/ticketing.component";
+import {AdminComponent} from "./components/home/admin/admin.component";
+import {HomepageComponent} from "./components/home/homepage/homepage.component";
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, children: [
       { path: 'sidebar', component: SidebarComponent },
+      { path: 'homepage', component: HomepageComponent },
       { path: 'tutorial', component: TutorialComponent },
       { path: 'ticketing', component: TicketingComponent },
+      { path: 'admin', component: AdminComponent}
     ]
   },
 
