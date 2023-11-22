@@ -1,3 +1,9 @@
+.spinner-grow{
+  width: 3rem;
+  height: 3rem;
+  color: #7b1fa2;
+}
+
 .photo-list {
   display: flex;
   justify-content: center;
@@ -6,13 +12,14 @@
   overflow-y: scroll;
   height: 100vh;
 
+
   // Custom scrollbar styles
   &::-webkit-scrollbar {
     width: 12px; // Adjust the width of the scrollbar
   }
 
   &::-webkit-scrollbar-track {
-    background: #f1f1f1; // Color of the scrollbar track
+    background: rgba(241, 241, 241, 0); // Color of the scrollbar track
     border-radius: 6px; // Optional: for rounded corners
 
   }

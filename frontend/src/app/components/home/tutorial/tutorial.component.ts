@@ -13,17 +13,23 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 })
 export class TutorialComponent implements OnInit {
 
+  spinner: boolean = true;
   photos: any[] = [];
 
   constructor(private videoService: VideoService) {}
   ngOnInit() {
-    this.videoService.getVideos('dogs').subscribe({
-      next: (data) => {
-        this.photos = data.photos;
-      },
-      error: (error) => {
-        console.error('There was an error!', error);
-      }
-    });
+
+    setTimeout(() => {
+      this.videoService.getVideos('dogs').subscribe({
+        next: (data) => {
+          this.spinner = false;
+          this.photos = data.photos;
+        },
+        error: (error) => {
+          this.spinner = false;
+          console.error('There was an error!', error);
+        }
+      });
+    }, 2000); // 2000 milliseconds delay
   }
 }

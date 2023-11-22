@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center align-items-center">
+  <table class="table m-4">
+    <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of tableData">
+      <td *ngIf="t.last; else combinedName">{{ t.first }}</td>
+      <td *ngIf="t.last">{{ t.last }}</td>
+      <ng-template #combinedName>
+        <td colspan="2">{{ t.first }}</td>
+      </ng-template>
+      <td>{{ t.handle }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
