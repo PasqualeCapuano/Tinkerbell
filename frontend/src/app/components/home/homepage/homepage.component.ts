@@ -12,7 +12,6 @@ Chart.register(...registerables);
 export class HomepageComponent implements AfterViewInit {
 
   @ViewChild('myRadarChart') myRadarChart!: ElementRef<HTMLCanvasElement>;
-  @ViewChild('myRadarChart2') myRadarChart2!: ElementRef<HTMLCanvasElement>;
 
   constructor() {
     Chart.register(...registerables);
@@ -20,9 +19,6 @@ export class HomepageComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (this.myRadarChart && this.myRadarChart.nativeElement) {
       this.createRadarChart();
-    }
-    if (this.myRadarChart2 && this.myRadarChart2.nativeElement) {
-      this.createBarChart();
     }
   }
 
@@ -48,7 +44,6 @@ export class HomepageComponent implements AfterViewInit {
         options: {
           scales: {
             r: {
-
               suggestedMin: 0,
               suggestedMax: 100
             }
@@ -57,28 +52,5 @@ export class HomepageComponent implements AfterViewInit {
       };
 
     new Chart(this.myRadarChart.nativeElement, config);
-  }
-  createBarChart() {
-      const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-          label: 'Monthly challenges',
-          data: [20, 12, 15, 18, 26, 24, 13, 20,15, 18, 26,7],
-          fill: true,
-          backgroundColor: 'rgba(221,99,255,0.2)',
-          borderColor: 'rgb(203,99,255)',
-          pointBackgroundColor: 'rgb(203,99,255)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(193,99,255)'
-        }],
-      };
-
-      const config2: ChartConfiguration<'bar'> = {
-        type: 'bar',
-        data: data,
-      };
-
-    new Chart(this.myRadarChart2.nativeElement, config2);
   }
 }
