@@ -13,7 +13,6 @@ export class HomepageComponent implements AfterViewInit {
 
   @ViewChild('myRadarChart') myRadarChart!: ElementRef<HTMLCanvasElement>;
   @ViewChild('myRadarChart2') myRadarChart2!: ElementRef<HTMLCanvasElement>;
-  @ViewChild('myRadarChart3') myRadarChart3!: ElementRef<HTMLCanvasElement>;
 
   constructor() {
     Chart.register(...registerables);
@@ -31,7 +30,7 @@ export class HomepageComponent implements AfterViewInit {
       const data = {
         labels: ['Marketing', 'Risk assessment', 'Managing supplies', 'Accounting', 'Management', 'Logistics', 'Communication','Pitching'],
         datasets: [{
-          label: 'Startup skills',
+          label: 'Skills developed',
           data: [20, 12, 28, 18, 26, 24, 13, 20],
           fill: true,
           backgroundColor: 'rgba(221,99,255,0.2)',
@@ -61,10 +60,10 @@ export class HomepageComponent implements AfterViewInit {
   }
   createBarChart() {
       const data = {
-        labels: ['Marketing', 'Risk assessment', 'Managing supplies', 'Accounting', 'Management', 'Logistics', 'Communication','Pitching'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'],
         datasets: [{
-          label: 'Startup skills',
-          data: [20, 12, 28, 18, 26, 24, 13, 20],
+          label: 'Monthly challenges',
+          data: [20, 12, 15, 18, 26, 24, 13, 20,15, 18, 26,7],
           fill: true,
           backgroundColor: 'rgba(221,99,255,0.2)',
           borderColor: 'rgb(203,99,255)',

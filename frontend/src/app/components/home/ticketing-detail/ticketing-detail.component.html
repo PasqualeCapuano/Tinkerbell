@@ -1,0 +1,30 @@
+<div class="ticket-details">
+  <h2>Ticket Detail</h2>
+
+  <div class="detail-item">
+    <h3>Title:</h3>
+    <p>{{ rowData.title }}</p>
+  </div>
+
+  <div class="detail-item">
+    <h3>Description:</h3>
+    <p>{{ rowData.description }}</p>
+  </div>
+
+  <div class="detail-item">
+    <h3>Status:</h3>
+    <p *ngIf="rowData.status === 'open'" style="color: red"><i class="bi bi-circle"></i> Ticket opened</p>
+    <p *ngIf="rowData.status === 'closed'" style="color: forestgreen"><i class="bi bi-circle-fill"></i> Ticket closed</p>
+    <p *ngIf="rowData.status === 'processing'" style="color: orange"><i class="bi bi-circle-half"></i> Ticket in process</p>
+  </div>
+
+  <div class="detail-item">
+    <h3>Customer Name:</h3>
+    <p>{{ rowData.customerName }}</p>
+  </div>
+
+  <div class="detail-item">
+    <h3>Customer Email:</h3>
+    <p>{{ rowData.customerEmail }}</p>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import {TutorialComponent} from "./components/home/tutorial/tutorial.component";
 import {TicketingComponent} from "./components/home/ticketing/ticketing.component";
 import {AdminComponent} from "./components/home/admin/admin.component";
 import {HomepageComponent} from "./components/home/homepage/homepage.component";
+import {TicketingDetailComponent} from "./components/home/ticketing-detail/ticketing-detail.component";
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
       { path: 'homepage', component: HomepageComponent },
       { path: 'tutorial', component: TutorialComponent },
       { path: 'ticketing', component: TicketingComponent },
+      { path: 'ticketing/:id', component: TicketingDetailComponent },
       { path: 'admin', component: AdminComponent}
     ]
   },
