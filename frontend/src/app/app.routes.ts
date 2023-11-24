@@ -10,6 +10,7 @@ import {HomepageComponent} from "./components/home/homepage/homepage.component";
 import {TicketingDetailComponent} from "./components/home/ticketing-detail/ticketing-detail.component";
 import {ProfileComponent} from "./components/home/profile/profile.component";
 import {ChallengeComponent} from "./components/home/challenge/challenge.component";
+import { canActivate, canActivateAdmin } from './auth/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -22,7 +23,7 @@ export const routes: Routes = [
       { path: 'tutorial', component: TutorialComponent },
       { path: 'ticketing', component: TicketingComponent },
       { path: 'ticketing/:id', component: TicketingDetailComponent },
-      { path: 'admin', component: AdminComponent}
+      { path: 'admin', component: AdminComponent }
     ]
   },
 
