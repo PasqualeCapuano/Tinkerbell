@@ -11,4 +11,17 @@ import {RouterLink} from "@angular/router";
 })
 export class SidebarComponent {
 
+  isSidebarHidden = false;
+
+  toggleSidebar() {
+    if (this.isSidebarHidden) {
+      this.isSidebarHidden = false;
+
+      return;
+    } else {
+      this.isSidebarHidden = true;
+      return;
+    }
+  }
+
 }
