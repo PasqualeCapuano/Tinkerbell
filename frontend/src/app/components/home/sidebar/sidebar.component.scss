@@ -1,9 +1,36 @@
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    position: fixed;
+  }
+
+}
+
+.menuColorVisible{
+  color: #ffffff;
+}
+
+.toggleSidebar{
+  display: block;
+  z-index: 1;
+}
+
+.hamburger-menu{
+  position: absolute;
+  font-size: 2rem;
+  z-index: 2;
+}
+
 nav {
   width: 200px;
-  background: linear-gradient(to bottom, #7b1fa2, #4a148c); // Purple gradient
+  background: linear-gradient(to bottom, #7b1fa2, #4a148c);
   height: 100vh;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  hr{
+    color: white;
+  }
 
   ul {
     list-style-type: none;
