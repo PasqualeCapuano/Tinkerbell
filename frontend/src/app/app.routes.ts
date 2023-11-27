@@ -15,7 +15,7 @@ import { canActivate, canActivateAdmin } from './auth/auth.guard';
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, children: [
+  { path: 'home', component: HomeComponent, canActivate:[canActivateAdmin], children: [
       { path: 'sidebar', component: SidebarComponent },
       { path: 'homepage', component: HomepageComponent },
       { path: 'profile', component: ProfileComponent },

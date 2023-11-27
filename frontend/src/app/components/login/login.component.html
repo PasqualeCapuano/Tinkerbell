@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="login-card">
     <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="login()" >
+    <form [formGroup]="loginForm">
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" formControlName="username" name="username">
@@ -12,8 +12,8 @@
         <input type="password" id="password" formControlName="password" name="password">
         <p class="text-danger" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">password doesn't respect proper form</p>
       </div>
-      <button type="submit" class="login-button" routerLink="/home">Login</button>
+      <button type="submit" class="login-button" (click)="login()">Login</button>
     </form>
   </div>
 </div>
-
+<button routerLink="/home"> navigate</button>

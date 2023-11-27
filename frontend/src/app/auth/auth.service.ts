@@ -32,33 +32,16 @@ export class AuthService {
 
     login(data: { username: string, password: string }) {
 
-        const loginLogic = (authData: AuthData): void =>  {
-            localStorage.setItem('userAuthData', JSON.stringify(authData));
-            //const expirationDate = this.jwtHelper.getTokenExpirationDate(authData.accessToken) as Date;
-            const expirationDate = new Date();
-            this.autoLogout(expirationDate);
-            this.authSubject.next(authData);
-        }
-
-    //    this.http.post<AuthData>(`${urlLogIn}`, data).pipe(
-    //         tap(data => loginLogic(data)),
-    //         catchError(this.errors)
-    //     );
-
-    // the following part of the method is temporary and for testing purposes
-        let authDataTemp =  { 
-                accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-                userRole: UserRoles.admin,
-                user: {
-                    email: 'pippo@gmail.it',
-                    id: 666,
-                    name: 'pippo',
-                    surname: 'pluto'
-                }
-            }
-
-        loginLogic(authDataTemp);
-        return of<AuthData>(authDataTemp);
+      return this.http.post<AuthData>(`${urlLogIn}`, data).pipe(
+             tap(data => {
+                localStorage.setItem('userAuthData', JSON.stringify(data));
+                //const expirationDate = this.jwtHelper.getTokenExpirationDate(authData.accessToken) as Date;
+                const expirationDate = new Date();
+                this.autoLogout(expirationDate);
+                this.authSubject.next(data);
+             }),
+             catchError(this.errors)
+         );
     }
 
     restoreUser() {
@@ -109,6 +92,7 @@ export class AuthService {
                 return throwError("L'utente non esiste");
                 break;
             default:
+                console.log(err.error);
                 return throwError('Errore nella chiamata');
                 break;
         }
