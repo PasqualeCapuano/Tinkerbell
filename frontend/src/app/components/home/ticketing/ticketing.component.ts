@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Router} from "@angular/router";
 import {DataService} from "../../../services/data.service";
+import {FormsModule} from "@angular/forms";
+import {SearchPipe} from "./search.pipe";
 
 @Component({
   selector: 'app-ticketing',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, SearchPipe],
   templateUrl: './ticketing.component.html',
   styleUrl: './ticketing.component.scss'
 })
@@ -154,6 +156,7 @@ export class TicketingComponent {
     }
   ];
 
+  searchText: string = '';
 
   openDetailPage(data: any) {
     this.dataService.setCurrentRowData(data);
