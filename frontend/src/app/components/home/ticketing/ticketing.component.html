@@ -1,4 +1,10 @@
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex p-5 flex-column justify-content-center align-items-center">
+  <div class="d-flex justify-content-end">
+    <div class="m-3">
+      <label for="search" class="form-label">Search</label>
+      <input id="search" class="form-control" type="text" placeholder="" aria-label="default input example" [(ngModel)]="searchText">
+    </div>
+  </div>
   <table class="table m-4">
     <thead>
     <tr>
@@ -10,8 +16,8 @@
       <th scope="col">Status</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let t of tableData" (click)="openDetailPage(t)">
+    <tbody class="table-group-divider">
+    <tr *ngFor="let t of tableData | search: searchText" (click)="openDetailPage(t)">
       <th scope="row">#{{ t.id }}</th>
       <td>{{ t.customerName }}</td>
       <td>{{ t.customerEmail }}</td>
